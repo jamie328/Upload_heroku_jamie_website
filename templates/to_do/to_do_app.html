@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+<title>
+    {% block title %}
+    To-do-app
+    {% endblock %}
+</title>
+<body>
+    {% block navbar %}
+  <!--  navbar開始-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'to_do_app' %}"> To-do-app </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About-me</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>
+      </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="POST">
+        {% csrf_token %}
+        <input class="form-control mr-sm-3" type="search" placeholder="To-do-item"
+             value="None Item" aria-label="Search" name = "item">
+        <select class="form-control mr-sm-3" name = "priority">
+            <option value = "*" selected> minor </option>
+            <option value = "**"> major </option>
+            <option value= "***"> very important </option>
+        </select>
+<!--        <input class="form-control mr-sm-2" type="search" placeholder="*"-->
+<!--             value ="*" aria-label="Search" name = "priority">-->
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add-Item</button>
+    </form>
+  </div>
+</nav>
+        {% endblock %}
+<!--  navbar結束-->
+    {% block content %}
+    <br/>
+    <h5 align="left"> To-do-app 是提醒大家在日常生活中待辦事項的一個小的 application ，
+        "*" 數越多，代表這件事情的優先順序越高，<br/>
+        請在輸入待辦事項時，以"*"表示此事情處理順位，預設為一個"*"。 </h5><br/>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>X</sup></small>
+                </button>
+                {{message}} </div>
+        {% endfor %}
+    {% endif%}
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col"><center>Date</center></th>
+                <th scope="col"><center>Item</center></th>
+                <th scope="col"><center>Priority</center></th>
+                <th scope="col"><center>Completed</center></th>
+                <th scope="col"><center>Deleted</center></th>
+            </tr>
+            <tbody>
+        {% if all_items %}
+            {% for item in all_items %}
+            {% if item.completed %}
+            <tr class = "table-secondary">
+                <td><center> {{item.event_date}} </center></td>
+                <td class = "striker"><a href = "/to_do_app/edit/{{item.id}}"></a><center>
+                    {{item.item}} </a></center></td>
+                <td><center>
+                    <a href = "/to_do_app/edit_pri/{{item.id}}"> {{item.priority}}</a>
+                </center> </td>
+                <td><center> <a href = "/to_do_app/uncompleted/{{item.id}}">O</a></center> </td>
+                <td><center> <a href = "/to_do_app/delete/{{item.id}}"> 刪除 </a></center></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td><center> {{item.event_date}} </center></td>
+                <td><center> <a href = "/to_do_app/edit/{{item.id}}">{{item.item}}</a> </center></td>
+                <td><center>
+                    <a href = "/to_do_app/edit_pri/{{item.id}}"> {{item.priority}}</a>
+                </center></td>
+                <td><center> <a href = "/to_do_app/completed/{{item.id}}">X</a> </center></td>
+                <td><center> <a href = "/to_do_app/delete/{{item.id}}"> 刪除 </a></center></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </table>
+    {% endblock %}
+</body>

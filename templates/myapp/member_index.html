@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        <!-- 套boostrap 但title 是自己的 -->
+    {% block title %} Django my_web會員名單  {% endblock %}
+    </title>
+</head>
+<body>
+    <br/>
+    會員訊息如下:
+    <br/> <br/>
+    <a href = "/create"> 新增  </a> <br/><br/>
+    <table border="3" cellpadding="6" cellspacing="3">
+    {% for member in members_all %}
+    <tr>
+        <td> {{member.id}} </td>
+        <td> <a href = "/members/{{ member.id }}"> {{member.Name}} </a> </td>
+        <td> <a href = "/delete{{member.id}}"> 刪除 </a></td>
+    </tr>
+    {% endfor %}
+    </table>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>有圖片的第二個模板</title>
+    {% load static %}
+    <link href = "{% static "css/style.css" %}" rel = "stylesheet"
+       type = "text/css" />
+</head>
+<body>
+    <div id = "home">
+    <img src = "{% static "images/p.jpg" %}" alt = "歡迎光臨"
+      width="32" height="32" />
+    <span class="info"> 歡迎光臨: {{username}} </br>
+        test: {{test_text}} </br>
+        輸出1~10: {{list_num}}
+    </span>
+    <h2>
+        現在時刻: {{now}} </br>
+        練習輸出for: </br>
+        {% for i in list_num %}
+        <li>
+            {{i}}
+        </li>
+        {% endfor %}
+
+    </h2>
+    </div>
+</body>
+</html>

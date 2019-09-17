@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+           <!-- 套boostrap 但title 是自己的 -->
+    {% block title %} Django my_web 會員 {{member_info.Name}} 的資料  {% endblock %}
+    </title>
+</head>
+<body>
+     <a href = "{% url 'member_index' %}" > 會員首頁 </a> <br/><br/>
+    {{member_info.Name}} 會員訊息如下:
+    <br/> <br/>
+    <table border="3" cellpadding="6" cellspacing="3">
+        <th> 編號 </th> <th> 姓名 </th> <th> 性別 </th> <th> 生日 </th> <th> 手機號碼 </th>
+    <tr>
+        <td> {{member_info.id}} </td>
+        <td> {{member_info.Name}} </td>
+        <td>  {{member_info.Sex}} </td>
+        <td>  {{member_info.Birthday}}  </td>
+        <td>  {{member_info.Phone}} </td>
+    </tr>
+    </table>
+    <br/>
+    <br/> </br>
+<!--    {% if member_info.id == 6 %}-->
+<!--        我是站長本人!!!-->
+<!--    {% endif %}-->
+
+</body>
+</html>
+
+{% endblock %}

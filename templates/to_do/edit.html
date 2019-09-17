@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+<title>
+    {% block title %}
+    To-do-app
+    {% endblock %}
+</title>
+<body>
+    {% block navbar %}
+  <!--  navbar開始-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'to_do_app' %}"> To-do-app </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About-me</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>
+      </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="POST">
+        {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="To-do-item"
+             aria-label="Search" name = "item">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add-Item</button>
+    </form>
+  </div>
+</nav>
+        {% endblock %}
+<!--  navbar結束-->
+    <br/>
+    {% block content %}
+    {% if edit_item %}
+    <br/>
+    <form class="form-inline my-2 my-lg-0" method="POST">
+        {% csrf_token %}
+        <input class="form-control mr-sm-3" type="search" placeholder="{{edit_item.item}}"
+             value = "{{edit_item.item}}" aria-label="Search" name = "item">
+        <input type = "hidden" value="{{ edit_item.priority }}" name="priority">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Edit-Item</button>
+    </form>
+    {% endif %}
+    {% endblock %}
+</body>
