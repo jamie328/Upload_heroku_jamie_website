@@ -14,6 +14,7 @@ class member_admin(admin.ModelAdmin):
 class articles_admin(admin.ModelAdmin):
 	list_display = ['Title','Create_date']  # 顯示文章資料
 	search_fields = ('Title',)
+	ordering = ('-Create_date',)
 class visit_num_admin(admin.ModelAdmin):
 	list_display = ['id','count']  # 顯示人數
 admin.site.register(member,member_admin) # 註冊

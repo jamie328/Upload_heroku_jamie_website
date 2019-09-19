@@ -20,7 +20,7 @@ import myapp
 # from myapp.views import my_first_web,url_view,index_1st,index_image #新增
 # 中央 urls
 
-
+# 中央的 urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('myapp.urls')),  # 中央urls進行匹配 因正則為空，所以匹配成功

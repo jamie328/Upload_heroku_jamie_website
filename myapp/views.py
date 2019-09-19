@@ -10,7 +10,7 @@ from myapp.models import member,articles,visit_num  # 引入models內的member
 # 4.返回html給browser
 def index(request):
     # from myapp.compute import compare
-    articles_all = articles.objects.all()
+    articles_all = articles.objects.all().order_by('-Create_date')
     count_num = visit_num.objects.get(id = 3)  # 創建跑去id=3 第一次取確認有無取到
     if count_num: #有取到值
         count_num.count += 1
