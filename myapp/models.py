@@ -27,3 +27,9 @@ class articles(models.Model):
 		# 返回字串
 		return self.Title
 # Create your models here.
+
+# 9/19 新增網站瀏覽次數
+class visit_num(models.Model):
+	count = models.PositiveIntegerField(default=0)
+	def __str__(self):
+		return str(self.count)

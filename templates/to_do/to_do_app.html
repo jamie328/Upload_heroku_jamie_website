@@ -21,9 +21,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'about' %}">About-me</a>
       </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>
-      </li>
+<!--        <li class="nav-item">-->
+<!--        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>-->
+<!--      </li>-->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -53,7 +53,7 @@
     <br/>
     <h5 align="left"> To-do-app 是提醒大家在日常生活中待辦事項的一個小的 application ，
         "*" 數越多，代表這件事情的優先順序越高，<br/>
-        請在輸入待辦事項時，以"*"表示此事情處理順位，預設為一個"*"。 </h5><br/>
+        請在輸入待辦事項時，以"*"表示此事情處理順位，預設為一個"*"，由右上角輸入代辦事項。 </h5><br/>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success alert-dismissable" role="alert">
