@@ -8,19 +8,29 @@
     <meta charset="utf-8">
     <title>
         <!-- 套boostrap 但title 是自己的 -->
-    {% block title %} Jamie Huang 的首頁 {% endblock %}
+    {% block title %} Jamie Huang 的自學程式小部落格 {% endblock %}
     </title>
 
 </head>
 <body>
+        <br/>
+        <div class="container-fluid">
+          <div class="media-body">
+              <h5 class="mt-2"> 用 Django 與 Bootstrap 試著寫寫程式 </h5>
+              <li class = "media">
+                  點進網頁的你，不妨按按上面的 About-me & To-do-app 兩個功能試試看玩玩看哦！
+              </li>
+              <li class = "media">
+                  下面是我自己試著做的 Side Project 心得歡迎點閱分享。
+              </li>
+          </div></div>
     <br/>
         {% for art in articles_all %}
-        <div class = "row">
-            <div class="col-sm-6">
+            <div class="col-sm-9">
                 <h3>
                     {{ art.Title }}
                 </h3>
-                <div class="card" style="width: 24rem;">
+                <div class="card" style="width: 35 rem;">
                     <img src="{% static art.Image %}" class="card-img-top" alt="{{ art.Title }}">
                     <div class="card-body">
                         <p class="card-text">
@@ -30,7 +40,8 @@
                     </div>
                 </div>
                 </div>
-                    <div>
+                <br/>
+                <hr>
         {% endfor %}
 <!--          <div class="col-sm-6">-->
 <!--    <h3>-->
