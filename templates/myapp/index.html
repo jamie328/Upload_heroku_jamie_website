@@ -23,7 +23,8 @@
               <li class = "media">
                   下面是我自己試著做的 Side Project 心得歡迎點閱分享。
               </li>
-          </div></div>
+          </div>
+        </div>
     <br/>
         {% for art in articles_all %}
             <div class="col-sm-9">
@@ -73,7 +74,12 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--                  </div>-->
-    </div>
+    <footer>
+        <center>
+        <div class="badge badge-primary text-wrap" style="width: 12rem; text">
+               累積瀏覽人數： {{ count_num.count }}
+        </div></center>
+    </footer>
 </body>
 </html>
 
