@@ -5,12 +5,14 @@ from django.template import loader, RequestContext # 其實 render就已經封�
 from to_do.models import do_list  # 引入models內的member
 from to_do.forms import listform # 引入list_form 作為表單回應
 from django.contrib import messages # 引入訊息模組
+from myapp.models import visit_num
 # 顯示介面要輸出之文字
 # 1.定義Views函數, HttpResponse
 # 2.進行urls配置，建立url地址和views的對應關係
 # 3.產生html內容
 # 4.返回html給browser
 def to_do_app(request):  # to-do-app
+	count_num = visit_num.objects.get(id=3)
 	if request.method == "POST":  # 如果 有list要新增 就加入
 		form = listform(request.POST or None)
 		if form.is_valid():

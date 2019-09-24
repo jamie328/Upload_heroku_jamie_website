@@ -111,7 +111,6 @@ DATABASES = {
 }
 ### 其 url 24hrs 會更換 ，使用此式 local & heroku 資料庫共通
 DATABASES['default'] = dj_database_url.config(default="postgres://dmpdzkbcivfuhy:b2c275dfba4397ed9159d74d22e3727ad122bddc95937cbe6e9560dd4d5dcc68@ec2-174-129-227-128.compute-1.amazonaws.com:5432/da29d5835f52dv")
-
 db_from_env = dj_database_url.config(conn_max_age= 600)
 DATABASES['default'].update(db_from_env)
 """9/19 更該為postgresql"""

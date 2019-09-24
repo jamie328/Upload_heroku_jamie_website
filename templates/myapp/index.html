@@ -26,18 +26,18 @@
           </div>
         </div>
     <br/>
-        {% for art in articles_all %}
+        {% for post in posts %}
             <div class="col-sm-9">
                 <h3>
-                    {{ art.Title }}
+                    {{ post.Title }}
                 </h3>
                 <div class="card" style="width: 35 rem;">
-                    <img src="{% static art.Image %}" class="card-img-top" alt="{{ art.Title }}">
+                    <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
                     <div class="card-body">
                         <p class="card-text">
-                            {{ art.Intro }}
+                            {{ post.Intro }}
                         </p>
-                        <a href="{{ art.Href }}" class="btn btn-primary">瞭解更多</a>
+                        <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
                     </div>
                 </div>
                 </div>
@@ -74,11 +74,32 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--                  </div>-->
-    <footer>
         <center>
-        <div class="badge badge-primary text-wrap" style="width: 12rem; text">
-               累積瀏覽人數： {{ count_num.count }}
-        </div></center>
+            {% for page_number in posts.paginator.page_range %}
+              {% ifequal page_number posts.number %}
+                {{ page_number }}
+              {% else %}
+                <a href =  "?page={{ page_number }}"> {{ page_number }}</a>
+              {% endifequal %}
+            {% endfor %}
+        </center>
+        <center>
+        <div>
+            <span>
+                {% if posts.has_previous %}
+                    <a href = "?page={{ posts.previous_page_number }}"> Newer </a>
+                {% endif %}
+            </span>
+<!--            <span>-->
+<!--                Page  {{ posts.number }}  of  {{ posts.paginator.num_pages }}-->
+<!--            </span>-->
+            <span>
+                {% if posts.has_next %}
+                    <a href= "?page={{ posts.next_page_number }}"> Older </a>
+                {% endif %}
+            </span>
+        </div>
+        </center>
     </footer>
 </body>
 </html>

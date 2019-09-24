@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import loader, RequestContext # 其實 render就已經封裝好了
 from myapp.models import member,articles,visit_num  # 引入models內的member
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # 顯示頁數
 # 顯示介面要輸出之文字
 # 1.定義Views函數, HttpResponse
 # 2.進行urls配置，建立url地址和views的對應關係
@@ -10,13 +11,23 @@ from myapp.models import member,articles,visit_num  # 引入models內的member
 # 4.返回html給browser
 def index(request):
     # from myapp.compute import compare
-    articles_all = articles.objects.all().order_by('-Create_date')
+    articles_all = articles.objects.all()  # .order_by('-Create_date')
     count_num = visit_num.objects.get(id = 3)  # 創建跑去id=3 第一次取確認有無取到
     if count_num: #有取到值
         count_num.count += 1
         count_num.save()
+    # 9/24 新增分頁系統
+    paginator = Paginator(articles_all, 3) # 每一頁只顯示 3個 把文章切割
+    page = request.GET.get('page') # 獲得當前頁碼
+    try:
+        posts = paginator.page(page) # ()內的為某頁的紀錄 當前頁數
+    except PageNotAnInteger: # 不是整數
+        posts = paginator.page(1)  # 剛開始進去為第1頁
+    except EmptyPage:  # 頁數超過最後一頁顯示最後一頁
+        posts = paginator.page(paginator.num_pages)  # 總共頁數的最後一頁
     return render(request, 'myapp/index.html', locals(),)
 def about(request):
+    count_num = visit_num.objects.get(id=3)
     return render(request, 'myapp/about.html', locals(),)
 # def index_image(request, username):
 #     now = datetime.now()
