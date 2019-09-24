@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        <!-- 套boostrap 但title 是自己的 -->
+    {% block title %} 文章搜尋結果 {% endblock %}
+    </title>
+
+</head>
+<body>
+    {% block content %}
+    <br/>
+    {% if query %}
+        {% if results %}
+            {% for post in posts %}
+            <div class="col-sm-9">
+            {% if post.Title %}
+                <h3>
+                {{ post.Title }}
+                </h3>
+                <div class="card" style="width: 35 rem;">
+                    <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ post.Intro }}
+                        </p>
+                        <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
+                    </div>
+                </div>
+            </div><br/><hr>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+            <h3> 你搜尋的關鍵字:「 {{ query }} 」，在部落格找不到相關結果！！ <h3/>
+        {% endif %}
+        <footer>
+        <center>
+            {% for page_number in posts.paginator.page_range %}
+              {% ifequal page_number posts.number %}
+                {{ page_number }}
+              {% else %}
+                <a href =  "?page={{ page_number }}"> {{ page_number }}</a>
+              {% endifequal %}
+            {% endfor %}
+        </center>
+        </footer>
+    {% else %}
+            <h3> 你輸入為空白，請重新輸入！！ <h3/>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
+

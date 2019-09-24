@@ -25,8 +25,8 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf">
-        <schema name="information_schema" object-types="table, view" />
-        <schema name="public" object-types="function, table, view, sequence" />
+        <schema name="information_schema" object-types="view, table" />
+        <schema name="public" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -43,6 +43,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf" dataset="public.to_do_do_list" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf" dataset="public.articles" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf" dataset="public.myapp_member" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf" dataset="public.myapp_articles" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf" dataset="public.myapp_visit_num" active-filter-id="EMPTY_FILTER" />
