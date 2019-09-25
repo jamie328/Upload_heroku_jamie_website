@@ -20,10 +20,8 @@
 {% block navbar %}
   <!--  navbar開始-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
   <a class="navbar-brand" href="{% url 'index' %}"> Jamie Huang</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -43,19 +41,23 @@
         <li class="nav-item">
         <a class="nav-link" href="https://huangjamison.github.io/Portfolio_Code/">Jamie 的 作品集</a>
       </li>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+
+    </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" method = "GET" action="{% url 'search' %}">
-      <input class="form-control mr-sm-2" type="search" placeholder="輸入搜尋關鍵字..."
+      <input class="form-control mr-sm-3" type="search" placeholder="輸入搜尋關鍵字..."
              aria-label="Search" name="q" value="{{ request.GET.q }}">
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+<!--    寫一個 if 判斷 login or logout   -->
+     {% if request.user.is_authenticated %}
+     <a href="{% url 'logout' %}" class="btn btn-link btn-lg active mr-sm-2" role="button" aria-pressed="true">
+           安安！{{ request.user.first_name }}，Logout 登出 </a>
+     {% else %}
+     <a href="{% url 'login' %}" class="btn btn-link btn-lg active mr-sm-2" role="button" aria-pressed="true"> Login 會員登入 </a>
+     {% endif %}
+<!--    寫一個 if 判斷 login or logout   -->
   </div>
 </nav>
 <!--  navbar結束-->
