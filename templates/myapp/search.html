@@ -9,19 +9,26 @@
         <!-- 套boostrap 但title 是自己的 -->
     {% block title %} 文章搜尋結果 {% endblock %}
     </title>
-
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href= "{% static "css/style.css" %}" >
 </head>
 <body>
     {% block content %}
     <br/>
     {% if query %}
         {% if results %}
+            <h4 class="search"> 搜尋邏輯為文章標題與文章介紹有無包含關鍵字，以下為符合結果... </h4>
+            <br/>
             {% for post in posts %}
             <div class="col-sm-9">
             {% if post.Title %}
                 <h3>
                 {{ post.Title }}
                 </h3>
+                <h6 class="date_style">
+                    {{ post.Create_date }}
+                </h6>
                 <div class="card" style="width: 35 rem;">
                     <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
                     <div class="card-body">
@@ -35,7 +42,7 @@
             {% endif %}
             {% endfor %}
         {% else %}
-            <h3> 你搜尋的關鍵字:「 {{ query }} 」，在部落格找不到相關結果！！ <h3/>
+            <h4 class="search"> 你搜尋的關鍵字:「 {{ query }} 」，在部落格找不到相關結果！！ <h4/>
         {% endif %}
         <footer>
         <center>
@@ -49,7 +56,9 @@
         </center>
         </footer>
     {% else %}
-            <h3> 你輸入為空白，請重新輸入！！ <h3/>
+            <h4 class="search"> 搜尋邏輯為文章標題與文章介紹有無包含關鍵字。 </h4>
+            <br/>
+            <h4> 你輸入為空白，請重新輸入！！ <h4/>
     {% endif %}
     {% endblock %}
 </body>

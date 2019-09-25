@@ -6,6 +6,13 @@
           background-color: #fcf9ea;
 }
 
+.date_style {
+          color: #83142c;
+}
+.search {
+        font-style: italic;
+}
+
 /*
 #body_color{
           background-color: #fcf9ea;

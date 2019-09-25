@@ -4,6 +4,7 @@ from datetime import datetime
 from django.template import loader, RequestContext # 其實 render就已經封裝好了
 from myapp.models import member,articles,visit_num  # 引入models內的member
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # 顯示頁數
+from django.db.models import Q  # 使用 OR and 等
 # 顯示介面要輸出之文字
 # 1.定義Views函數, HttpResponse
 # 2.進行urls配置，建立url地址和views的對應關係
@@ -59,7 +60,7 @@ def delete(request, mid):
 def search(request):
     count_num = visit_num.objects.get(id = 3)  # 創建跑去id=3 第一次取確認有無取到
     query = request.GET.get('q')
-    results = articles.objects.all().filter(Title__contains=str(query))
+    results = articles.objects.all().filter(Q(Title__contains=str(query)) | (Q(Intro__contains=str(query))))
     # if results is None:
     #     not_found = '你搜尋的關鍵字:' + str(query) + '，在部落格找不到相關結果！！'
     # 9/24 新增分頁系統
