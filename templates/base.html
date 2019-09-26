@@ -44,7 +44,12 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'website_log' %}">網站開發史</a>
       </li>
-
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+    </div>
     </ul>
     <form class="form-inline my-2 my-sm-0" method = "GET" action="{% url 'search' %}">
       <input class="form-control mr-sm-2" type="search" placeholder="輸入搜尋關鍵字..."

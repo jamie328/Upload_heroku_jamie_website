@@ -27,6 +27,12 @@
 <!--        <li class="nav-item">-->
 <!--        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>-->
 <!--      </li>-->
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+    </div>
     </ul>
     <form class="form-inline my-2 my-sm-0" method="POST">
         {% csrf_token %}
