@@ -6,12 +6,16 @@ from datetime import datetime
 # from to_do.forms import listform # 引入list_form 作為表單回應
 from django.contrib import messages # 引入訊息模組
 from myapp.models import visit_num # 瀏覽人數
-from django.contrib.auth import authenticate, login # 引入django 內建的 login
+from django.contrib.auth import authenticate, login, logout # 引入django 內建的 login
 from django.contrib.auth.decorators import login_required  # 只有login才能出現的網頁 否則不能造訪
 from .forms import myuser_create_form  # 繼承django內建的UserCreationForm
+from django.contrib.auth.models import User  # 導入user
+
+
 @login_required
 def dashboard(request):  # 登入成功頁面 訪問網址  /login/successful/
 	count_num = visit_num.objects.get(id=3)
+	username = request.user.first_name
 	templates = 'login/dashboard.html'
 	return render(request, templates, locals())
 def registration(request):
@@ -30,17 +34,3 @@ def registration(request):
 		user_form = myuser_create_form()
 		templates = 'login/registration.html'
 		return render(request, templates, locals())
-# def to_do_app(request):  # to-do-app
-# 		count_num = visit_num.objects.get(id=3)
-# 		if request.method == "POST":  # 如果 有list要新增 就加入
-# 			form = listform(request.POST or None)
-# 			if form.is_valid():
-# 				form.save()
-# 				all_items = do_list.objects.all()
-# 				messages.success(request, ("已成功新增 Item 於 To-do-app!!!"))
-# 				return render(request, 'to_do/to_do_app.html', locals())
-# 		else:
-# 			all_items = do_list.objects.all()
-# 			return render(request, 'to_do/to_do_app.html', locals())
-
-# Create your views here.

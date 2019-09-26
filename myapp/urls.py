@@ -12,5 +12,6 @@ urlpatterns = [
 	url(r'^members/(\d+)/$', views.member_detail, name='member_detail'), #地方urls匹配member_detail
 	url(r'^create/$',views.create), # 創建
 	url(r'^delete(\d+)/', views.delete), #刪除
-	url(r'^search', views.search, name='search'),
+	url(r'^search', views.search, name='search'), # 9/24 完成
+	url(r'^website_log', views.website_log, name='website_log'),  # 9/26新增
 ]

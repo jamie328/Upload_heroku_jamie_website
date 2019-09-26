@@ -74,7 +74,7 @@ ROOT_URLCONF = 'web_create_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], #加上templates路徑
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #加上templates路徑 自己加的
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
