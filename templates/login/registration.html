@@ -14,13 +14,16 @@
 <body>
     {% block content %}
     <br/>
+    {% if error_msg %}
+    <p class="text_style" style="color=red;"> {{ error_msg.as_p }} </p>
+    {% endif %}
     <h3>  加入會員表單  </h3>
     <hr>
     <p>  請完成以下表單  </p>
     <form class="post-form" method = "POST" action='.'>
       {{ user_form.as_p }}
       {% csrf_token %}
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> 提交 </button>
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Create my account"> 提交 </button>
     </form>
     {% endblock %}
 </body>

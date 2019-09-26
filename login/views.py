@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout # 引入django 內�
 from django.contrib.auth.decorators import login_required  # 只有login才能出現的網頁 否則不能造訪
 from .forms import myuser_create_form  # 繼承django內建的UserCreationForm
 from django.contrib.auth.models import User  # 導入user
+from django.contrib.auth.forms import UserCreationForm   # 繼承此表單功能
 
 
 @login_required
@@ -30,7 +31,16 @@ def registration(request):
 			new_user.save()
 			templates = 'login/register_done.html'
 			return render(request, templates, locals())
-	else:  # 如果是GET 就代表使用者單純填入表單
+		else:
+			# 可能要想一下如何模組化
+			user_form = myuser_create_form()
+			templates = 'login/registration.html'
+			if UserCreationForm.error_messages:
+				error_msg = UserCreationForm.error_messages
+			return render(request, templates, locals(),)
+	else:
+		# 如果是GET 就代表使用者單純填入表單
+		templates = 'login/registration.html'
 		user_form = myuser_create_form()
 		templates = 'login/registration.html'
-		return render(request, templates, locals())
+		return render(request, templates, locals(),)
