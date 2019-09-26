@@ -18,6 +18,13 @@ import dj_database_url
 
 import os
 
+"""9/25新增會員登入頁面成功跳轉畫面"""
+LOGIN_REDIRECT_URL = '/login'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+"""9/25新增會員登入頁面成功跳轉畫面"""
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -46,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp', #新增的app
     'to_do', #新增於0912
+    'login', #新增於0925
 ]
 #     'mysqlfile', # 2019/09/08 新增mysql
 # 9/15新增heroku whitenoise 處理 static 文件
@@ -66,7 +74,7 @@ ROOT_URLCONF = 'web_create_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], #加上templates路徑
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #加上templates路徑 自己加的
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,10 +100,11 @@ WSGI_APPLICATION = 'web_create_project.wsgi.application'
 #     }
 # }
 '''09/08 改為 mysql，因為上船雲端，所以db換成 postgresql '''
+"""09/25 開發 mysql login 使用 下午四點換過去postgresql """
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'djangomysql',  # 使用數據庫名字 數據需先手動創建
+#         'NAME':'login',  # 使用數據庫名字 數據需先手動創建
 #         'USER':'b10130402',
 #         'PASSWORD':'hjkl4660',
 #         'HOST':'localhost',  # 指定mysql數據庫所在ip位址'127.0.0.1'
@@ -104,6 +113,7 @@ WSGI_APPLICATION = 'web_create_project.wsgi.application'
 #     }
 # }
 """9/19 更該為postgresql"""
+"""9/25 重新啟用 postgresql"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql.psycopg2',

@@ -20,11 +20,11 @@
         <br/>
         <div class="container-fluid">
           <div class="media-body">
-              <h5 class="mt-2"> 用 Django 與 Bootstrap 試著寫寫程式 </h5>
-              <li class = "media">
+              <h5 class="mt-2 text_style"> 用 Django 與 Bootstrap 試著寫寫程式 </h5>
+              <li class = "media text_style">
                   點進網頁的你，不妨按按上面的 About-me & To-do-app 兩個功能試試看玩玩看哦！
               </li>
-              <li class = "media">
+              <li class = "media text_style">
                   下面是我自己試著做的 Side Project 心得歡迎點閱分享。
               </li>
           </div>
@@ -32,7 +32,7 @@
     <br/>
         {% for post in posts %}
             <div class="col-sm-9">
-                <h3>
+                <h3 class="text_style">
                     {{ post.Title }}
                 </h3>
                 <h6 class="date_style">

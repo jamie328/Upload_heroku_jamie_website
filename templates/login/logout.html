@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 套boostrap 但title 是自己的 -->
+    <title>
+    {% block title %}
+    Logout 畫面
+    {% endblock %}
+    </title>
+</head>
+<body>
+    {% block content %}
+    <br/>
+    <h3>  登出囉! 如要使用 To-do-app 功能，請重新登入！  </h3>
+    <br/>
+    {% endblock %}
+</body>
+</html>

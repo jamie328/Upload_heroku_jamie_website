@@ -12,6 +12,9 @@
 .search {
         font-style: italic;
 }
+.text_style {
+    line-height:40px;font-size: 16 px;letter-spacing:1.5px;
+}
 
 /*
 #body_color{

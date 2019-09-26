@@ -74,4 +74,8 @@ def search(request):
         posts = paginator.page(paginator.num_pages)  # 總共頁數的最後一頁
     return render(request, 'myapp/search.html', locals()) # 呼叫search模板
 
+def website_log(request):
+    count_num = visit_num.objects.get(id=3)
+    templates = 'myapp/website_log.html'
+    return render(request, templates, locals(),)
 # Create your views here.
