@@ -26,11 +26,10 @@
     <loaded-nodes>
       <connection connection-id="fc1ec3e2-c29c-446a-9177-c44d7febedbf">
         <schema name="information_schema" object-types="view, table" />
-        <schema name="pg_catalog" object-types="function" />
-        <schema name="public" object-types="dataset trigger, view, index, sequence, column, function, table, constraint" />
+        <schema name="public" object-types="view, table" />
       </connection>
       <connection connection-id="faf7a034-67c8-4b8a-a1e2-a9e4d26009d1">
-        <schema name="login" object-types="dataset trigger, view, index, function, column, table, constraint, procedure" />
+        <schema name="login" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>

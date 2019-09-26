@@ -2,46 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daab393e-8eb6-4573-a0a2-b57809003ff0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/register_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/PIL/MpoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/PIL/MpoImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/cryptography/hazmat/backends/openssl/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/cryptography/hazmat/backends/openssl/backend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/admin/sites.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/admin/sites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/auth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/auth/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/auth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/auth/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/contrib/flatpages/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/core/checks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/core/checks/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/django/core/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/django/core/serializers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/internal/message_factory_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/internal/message_factory_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/internal/symbol_database_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/internal/symbol_database_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/message_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/google/protobuf/message_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/joblib/test/test_numpy_pickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/joblib/test/test_numpy_pickle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/joblib/test/test_parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/joblib/test/test_parallel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/core/accessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/core/accessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/errors/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/errors/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/plotting/_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pandas/plotting/_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pip/_vendor/pkg_resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pipenv/patched/notpip/_vendor/pkg_resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pipenv/patched/notpip/_vendor/pkg_resources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/pkg_resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/pkg_resources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/psycopg2/extras.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/psycopg2/extras.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/event/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/event/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/event/registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/event/registry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/ext/declarative/clsregistry.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/ext/declarative/clsregistry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/orm/instrumentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/myenv/Lib/site-packages/sqlalchemy/orm/instrumentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_create_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_create_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_create_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_create_project/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web_create_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="384">
               <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding>
                 <element signature="e#340#360#0" expanded="true" />
@@ -66,26 +27,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="504">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/login/register_done.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
+              <caret line="18" selection-start-line="18" selection-end-line="19" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -94,18 +46,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login/registration.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="96">
               <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -197,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1944" />
@@ -315,13 +258,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.196443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19967663" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Graph Database Console" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -334,6 +276,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" />
+      <window_info anchor="bottom" id="Graph Database Console" order="12" />
       <window_info anchor="right" x="436" y="59" width="408" height="563" id="Graph Database" order="0" show_stripe_button="false" weight="0.17784964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -707,9 +650,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/migrations/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/login/migrations/urls.py" />
     <entry file="file://$PROJECT_DIR$/to_do/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -831,13 +772,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/login/register_done.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -850,7 +788,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web_create_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="384">
           <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding>
             <element signature="e#340#360#0" expanded="true" />
@@ -858,9 +796,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="96">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
@@ -868,17 +813,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login/login.html">
+    <entry file="file://$PROJECT_DIR$/login/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login/register_done.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="432">
+          <caret line="18" selection-start-line="18" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
