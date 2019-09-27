@@ -29,6 +29,8 @@ AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',  # 預設
         'social_core.backends.google.GoogleOAuth2',   # 新增於9/27
         'social_core.backends.github.GithubOAuth2',   # 新增於9/27
+        # 'social_core.backends.facebook.FacebookOAuth2',  # 新增於9/28
+        'social_core.backends.instagram.InstagramOAuth2',  #新增於9/28
 ]
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 # localhost key secret
@@ -36,11 +38,17 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 # SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ZNb2y_niK1mYkXAg38Wsnnut'
 # SOCIAL_AUTH_GITHUB_KEY = 'b8c658e7ee2d2bc9dc03'
 # SOCIAL_AUTH_GITHUB_SECRET = '83be6a407ca7b1051e62384c2fbe4809648b279b'
+
+
 # heroku key secret
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '191042244574-3fsaenguf469lhde81a5493usk27hrjo.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9SrlkIlZ2jztLbeRgCjTveTE'
 SOCIAL_AUTH_GITHUB_KEY = '882927535ceb6c029118'
 SOCIAL_AUTH_GITHUB_SECRET = 'cd014409817cd5039c4a175fa019c9a41246b074'
+# SOCIAL_AUTH_FACEBOOK_KEY = '484749135713335' # 與 local端設定一樣
+# SOCIAL_AUTH_FACEBOOK_SECRET = '9a65d47f0f800cfe8258705db972aa1e' # 與 local端設定一樣
+SOCIAL_AUTH_INSTAGRAM_KEY = '766b10862faf47c3b0f34c6476a62047'  # 與 local端設定一樣
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'd4be61d6dc6344e5974d5e94bded3ec1'  # 與 local端設定一樣
 """9/27 新增 google API第三方"""
 
 
