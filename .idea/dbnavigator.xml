@@ -28,9 +28,6 @@
         <schema name="information_schema" object-types="view, table" />
         <schema name="public" object-types="view, table" />
       </connection>
-      <connection connection-id="faf7a034-67c8-4b8a-a1e2-a9e4d26009d1">
-        <schema name="login" object-types="view, table" />
-      </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">

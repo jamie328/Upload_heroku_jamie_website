@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^', include('myapp.urls')),  # 中央urls進行匹配 因正則為空，所以匹配成功
     url(r'^', include('to_do.urls')),  # 9/12註冊to_do app
     url(r'^', include('login.urls')),  # 9/25註冊login
+    path('social-auth/', include('social_django.urls', namespace='social')),  # 9/27新增django第三方
 ]

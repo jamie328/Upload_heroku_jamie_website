@@ -24,6 +24,11 @@ LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 """9/25新增會員登入頁面成功跳轉畫面"""
 
+"""9/27 新增 google API第三方"""
+
+
+"""9/27 新增 google API第三方"""
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,7 +44,10 @@ SECRET_KEY = config('SECRET_KEY') # 9/17新增
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  #真正上線部署時會設定為False 改為False 9/15
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+"""9/27 修改hosts運行第三方"""
+ALLOWED_HOSTS = ['jamie.com', ]
+"""9/27 修改hosts運行第三方"""
 
 
 # Application definition
@@ -51,9 +59,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp', #新增的app
-    'to_do', #新增於0912
-    'login', #新增於0925
+    'myapp',  #新增的app
+    'to_do',  #新增於0912
+    'login',  #新增於0925
+    'social_django',  # 新增於0927
 ]
 #     'mysqlfile', # 2019/09/08 新增mysql
 # 9/15新增heroku whitenoise 處理 static 文件

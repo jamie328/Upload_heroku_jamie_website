@@ -24,7 +24,7 @@ def registration(request):
 	if request.method == 'POST':  # 如果是要傳回值
 		user_form = myuser_create_form(request.POST or None)  # 確認 user_form 是 POST
 		if user_form.is_valid():  # 確認都是有效的
-			new_user = user_form.save(commit=False)
+			new_user = user_form.save(commit=False)  # 先不要提交，但保存現在頁面資料，要作密碼設置
 			new_user.set_password(
 				user_form.cleaned_data['password1']   # 設置密碼以表單上的password1
 			)

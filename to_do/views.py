@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import loader, RequestContext # 其實 render就已經封裝好了
 from to_do.models import do_list  # 引入models內的member
-from to_do.forms import listform # 引入list_form 作為表單回應
+from to_do.forms import listform  # 引入list_form 作為表單回應
 from django.contrib import messages # 引入訊息模組
 from myapp.models import visit_num
 from django.contrib.auth.decorators import login_required  # 只有login才能出現的網頁 否則不能造訪

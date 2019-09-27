@@ -15,7 +15,9 @@
 .text_style {
     line-height:40px;font-size: 16 px;letter-spacing:1.5px;
 }
-
+.alert_style {
+    font-style: italic; font-size: 36px; color: red;letter-spacing:1.5px;
+}
 /*
 #body_color{
           background-color: #fcf9ea;
