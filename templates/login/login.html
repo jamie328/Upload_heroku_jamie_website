@@ -24,8 +24,12 @@
       {% csrf_token %}
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> 登入 </button>
     </form><br/>
+<!--    google API登入    -->
+    <button type="button" class="btn btn-outline-success google">
+        <a href="{% url 'social:begin' 'google-oauth2' %}">使用第三方 Google 登入</a></button>
+<!--    google API登入    -->
     <p class="text_style">
-        提供測試帳號與密碼供測試用 <br/>
+        或是選擇使用「測試帳號與密碼」供測試用 <br/>
         帳號： robertisme <br/>
         密碼： pythondjango <br/>
     </p>

@@ -24,9 +24,18 @@ LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 """9/25新增會員登入頁面成功跳轉畫面"""
 
-"""9/27 新增 google API第三方"""
-
-
+"""9/27 新增 google API第三方 為 localhost 使用"""
+AUTHENTICATION_BACKENDS = [
+        'django.contrib.auth.backends.ModelBackend',  # 預設
+        'social_core.backends.google.GoogleOAuth2',   # 新增於9/27
+]
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# localhost key secret
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '191042244574-rcvbcumjt3tmhtcetnealn89co1fmbli.apps.googleusercontent.com'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ZNb2y_niK1mYkXAg38Wsnnut'
+# heroku key secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '191042244574-3fsaenguf469lhde81a5493usk27hrjo.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9SrlkIlZ2jztLbeRgCjTveTE'
 """9/27 新增 google API第三方"""
 
 
