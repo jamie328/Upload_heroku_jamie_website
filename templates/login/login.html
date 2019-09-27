@@ -27,7 +27,12 @@
 <!--    google API登入    -->
     <button type="button" class="btn btn-outline-success google">
         <a href="{% url 'social:begin' 'google-oauth2' %}">使用第三方 Google 登入</a></button>
+        /
 <!--    google API登入    -->
+<!--    github API登入-->
+    <button type="button" class="btn btn-outline-success github">
+        <a href="{% url 'social:begin' 'github' %}">使用第三方 Github 登入</a></button>
+<!--    github API登入-->
     <p class="text_style">
         或是選擇使用「測試帳號與密碼」供測試用 <br/>
         帳號： robertisme <br/>
