@@ -58,7 +58,7 @@ def edit(request, item_id):  # edit
 			messages.success(request, ("已成功編輯此 Item 事件 於 To-do-app!!!"))
 		return redirect('/to_do_app')
 
-	else: # 因為按修改，網頁不會是 get
+	else:  # 因為按修改，網頁不會是 get
 		edit_item = do_list.objects.get(id = item_id)
 		return render(request, 'to_do/edit.html', locals())
 @login_required

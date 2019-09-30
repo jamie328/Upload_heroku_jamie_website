@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'to_do',  #新增於0912
     'login',  #新增於0925
     'social_django',  # 新增於0927
+    'bbs',  # 新增於0928
 ]
 #     'mysqlfile', # 2019/09/08 新增mysql
 # 9/15新增heroku whitenoise 處理 static 文件

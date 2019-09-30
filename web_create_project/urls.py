@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^', include('to_do.urls')),  # 9/12註冊to_do app
     url(r'^', include('login.urls')),  # 9/25註冊login
     url(r'^social-auth/', include('social_django.urls', namespace='social')),  # 9/27新增django第三方
+    url(r'^', include('bbs.urls')),  # 0928新增bbs功能
 ]

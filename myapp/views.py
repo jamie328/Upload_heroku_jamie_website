@@ -14,9 +14,7 @@ def index(request):
     # from myapp.compute import compare
     articles_all = articles.objects.all()  # .order_by('-Create_date')
     count_num = visit_num.objects.get(id = 3)  # 創建跑去id=3 第一次取確認有無取到
-    if count_num: #有取到值
-        count_num.count += 1
-        count_num.save()
+    count_num.viewed()  # 直接呼叫函式更新
     # 9/24 新增分頁系統
     paginator = Paginator(articles_all, 3) # 每一頁只顯示 3個 把文章切割
     page = request.GET.get('page') # 獲得當前頁碼
@@ -30,11 +28,7 @@ def index(request):
 def about(request):
     count_num = visit_num.objects.get(id=3)
     return render(request, 'myapp/about.html', locals(),)
-# def index_image(request, username):
-#     now = datetime.now()
-#     test_text = 'Yoyoman!!!!'
-#     list_num = list(range(1,11))
-#     return render(request, 'myapp/index_image.html', locals()) # 導至index_image.html
+
 def member_index(request): # member 主頁
     members_all = member.objects.all()
     return render(request, 'myapp/member_index.html', locals()) # 呼叫html模板

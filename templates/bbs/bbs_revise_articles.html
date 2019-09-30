@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 套boostrap 但title 是自己的 -->
+    <title>
+    {% block title %}
+    BBS revise article
+    {% endblock %}
+    </title>
+</head>
+<body>
+    {% block content %}
+    <br/>
+    <h5>  修改你要發布 BBS 文章的內容  </h5>
+    <br/>
+    <form method="POST">
+        {% csrf_token %}
+        <input type = "hidden" value="{{ request.user.first_name }}" name="postman">
+        <div class="form-group">
+            <label>文章標題</label>
+            <input type="search" class="form-control" placeholder="{{ the_post.post_title }}"
+            value="{{ the_post.post_title }}" name="post_title">
+        </div>
+        <div class="form-group">
+            <label>文章主題 (請選擇一個主題!!) </label>
+            <select class="form-control" name="post_type" default="{{ the_post.post_type }}">
+              <option value="分享">分享</option>
+              <option value="心情">心情</option>
+              <option value="爆卦">爆卦</option>
+              <option value="請益">請益</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>文章內容</label>
+            <textarea class="form-control" rows="10" name="post_content">
+                {{ the_post.post_content }}
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">送出</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

@@ -39,3 +39,7 @@ class visit_num(models.Model):
 		return str(self.count)
 	class Meta:
 		db_table = 'visit_num'
+	# 9/29更新程式碼用函數呼叫
+	def viewed(self):
+		self.count += 1
+		self.save(update_fields=['count'])

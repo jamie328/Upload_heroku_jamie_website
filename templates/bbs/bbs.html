@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 套boostrap 但title 是自己的 -->
+    <title>
+    {% block title %}
+    BBS 首頁
+    {% endblock %}
+    </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href= "{% static "css/style.css" %}" >
+</head>
+<body>
+    {% block content %}
+    <br/>
+    <h3><center>  BBS Beta </center></h3>
+        <center>
+              <h5 class="text_style"> BBS 全名為 Bulletin Board System 是一個相互交流的小基地 </h5>
+              <h6 class = "text_style">
+                  花了一些時間練習 Django MTV 系統並練習 CRUD 觀念，希望你們操作上順手哦！
+              </h6>
+              <h6 class = "text_style">
+                  不想註冊會員的朋友可以試試看「留言」、「讚」、「噓」功能，謝謝你的來訪！
+              </h6>
+        </center>
+<!--    新增 修改 案讚等訊息-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>X</sup></small>
+                </button>
+                {{message}} </div>
+        {% endfor %}
+    {% endif%}
+<!--    新增 修改 案讚等訊息-->
+    <center>
+    <a href="{% url 'bbs_new_articles' %}" class="btn btn-outline-info btn-lg active" role="button" aria-pressed="true">
+          我有話要說 !! </a></center><br/>
+        <div class="row">
+        {% for po,comment in my_list %}
+            <div class="card border-info col-md-5 card_padding card_size">
+              <div class="bbs_href"><center>
+              <a href="{% url 'bbs_revise_articles' po.id %}" class="bbs_href">修改文章 </a>
+              <a href="{% url 'bbs_delete_articles' po.id %}" class="bbs_href">刪除文章 </a>
+              </center></div>
+              <div class="card-header text-white bg-primary">
+              <center>
+                  [{{ po.post_type }}] &nbsp; {{ po.post_title }} <br/>
+                   鄉民 &ensp;{{ po.postman }}&ensp;於&ensp;
+                  {{ po.post_date|date:"Y-m-d H:i:s" }} &ensp;發布
+              </center></div>
+              <div class="card-body">
+                <p class="card-text">
+                {{ po.post_content }}</p>
+              </div>
+              <div class="card-footer text-black bg-warning"><center>
+              <a href="{% url 'bbs_likes_post' po.id %}"><img src ="{% static 'images/likes.png' %}" width="20">
+                  讚：{{ po.post_likes }}&nbsp;</a>
+                  <a href="{% url 'bbs_hates_post' po.id %}"><img src="{% static 'images/dislikes.png '%}" width="20">
+                  噓： {{ po.post_hates }} </a>
+               <br/>目前有 {{ comment|length }} 留言
+              </center></div>
+            <br/>
+<!--            留言區    -->
+            {% for co in comment %}
+                &emsp;{{ co.comment_man }}說： {{ co.comment_content }}
+                <hr>
+            {% endfor %}
+<!--            留言區    -->
+<!--     新增留言區  -->
+
+<form action="{% url 'bbs_new_comment' po.id %}" method="POST">
+        {% csrf_token %}
+            <input type = "hidden" value="{{ po.pk }}" name="comment_post">
+        {% if request.user.is_authenticated %}
+            <input type = "hidden" value="{{ request.user.first_name }}" name="comment_man">
+        {% else %}
+            <input type = "hidden" value="訪客" name="comment_man">
+        {% endif %}
+        <input class="form-control mr-sm-2 leave_message" type="search" placeholder="想說什麼..."
+             value="" name="comment_content">
+        <button class="btn btn-outline-info leave_message" type="submit">留言</button>
+</form>
+<!--     新增留言區  -->
+            </div>
+        {% endfor %}
+        </div>
+        <br/>
+
+    {% endblock %}
+
+</body>
+</html>

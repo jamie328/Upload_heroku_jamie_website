@@ -18,6 +18,24 @@
 .alert_style {
     font-style: italic; font-size: 36px; color: red;letter-spacing:1.5px;
 }
+.card_padding {
+    margin-top:10px;
+    margin-left:50px;
+    margin-right:20px;
+    margin-bottom:30px;
+}
+.leave_message {
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom:15px;
+}
+.card_size {
+    min-height: 200px;
+}
+.bbs_href {
+    display:inline; font-style: bold; color: red;
+}
 /*
 #body_color{
           background-color: #fcf9ea;
