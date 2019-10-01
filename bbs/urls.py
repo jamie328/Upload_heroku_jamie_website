@@ -14,5 +14,8 @@ urlpatterns = [
 	  url(r'^bbs_hates_post/(?P<post_id>\d+)/', views.bbs_hates_post, name='bbs_hates_post'),
 	  url(r'^bbs_new_comment/(?P<post_id>\d+)/', views.bbs_new_comment, name='bbs_new_comment'),
 	  url(r'^bbs_revise_articles/(?P<post_id>\d+)/', views.bbs_revise_articles, name='bbs_revise_articles'),
-	url(r'^bbs_delete_articles/(?P<post_id>\d+)/', views.bbs_delete_articles, name='bbs_delete_articles'),
+	  url(r'^bbs_delete_articles/(?P<post_id>\d+)/', views.bbs_delete_articles, name='bbs_delete_articles'),
+	  url(r'^bbs_revise_comment/(?P<comment_id>\d+)/', views.bbs_revise_comment, name='bbs_revise_comment'),
+	  url(r'^bbs_delete_comment/(?P<comment_id>\d+)/', views.bbs_delete_comment, name='bbs_delete_comment'),
+
 ]

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 套boostrap 但title 是自己的 -->
+    <title>
+    {% block title %}
+    BBS revise comment
+    {% endblock %}
+    </title>
+</head>
+<body>
+    {% block content %}
+    <br/>
+    <h5>  修改你的「留言」的內容 {{ the_comment.comment_post }} {{ request.user.first_name }}</h5>
+    <br/>
+
+<form method="POST">
+        {% csrf_token %}
+        <input type = "hidden" value="{{ request.user.first_name }}" name="comment_man">
+        <input class="form-control mr-sm-2 leave_message" type="search"
+            placeholder="{{ the_comment.comment_content }}"
+            value="{{ the_comment.comment_content }}" name="comment_content">
+        <button type="submit" class="btn btn-primary mb-2">修改留言</button>
+</form>
+
+    {% endblock %}
+</body>
+</html>

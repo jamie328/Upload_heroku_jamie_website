@@ -18,4 +18,4 @@ class bbs_comment_form(forms.ModelForm):
 	# 不把 comment_post 寫進去 用 views.py 處理
 	class Meta:
 		model = bbs_comment
-		fields = ['comment_post', 'comment_man', 'comment_content']
+		fields = ['comment_man', 'comment_content']

@@ -23,8 +23,11 @@
               <h6 class = "text_style">
                   花了一些時間練習 Django MTV 系統並練習 CRUD 觀念，希望你們操作上順手哦！
               </h6>
+
+                  會員可以在 BBS 發布文章、分享意見、留言、案讚、分享
+              </h6>
               <h6 class = "text_style">
-                  不想註冊會員的朋友可以試試看「留言」、「讚」、「噓」功能，謝謝你的來訪！
+                  訪客可以「留言」、「讚」、「噓」功能，歡迎使用，謝謝你的來訪！
               </h6>
         </center>
 <!--    新增 修改 案讚等訊息-->
@@ -68,7 +71,11 @@
             <br/>
 <!--            留言區    -->
             {% for co in comment %}
-                &emsp;{{ co.comment_man }}說： {{ co.comment_content }}
+                <div>
+                <a href="{% url 'bbs_revise_comment' co.id %}" >改</a>
+                <a href="{% url 'bbs_delete_comment' co.id %}" >刪</a>
+                    &emsp;{{ co.comment_man }}說： {{ co.comment_content }}
+                </div>
                 <hr>
             {% endfor %}
 <!--            留言區    -->
@@ -76,13 +83,12 @@
 
 <form action="{% url 'bbs_new_comment' po.id %}" method="POST">
         {% csrf_token %}
-            <input type = "hidden" value="{{ po.pk }}" name="comment_post">
         {% if request.user.is_authenticated %}
             <input type = "hidden" value="{{ request.user.first_name }}" name="comment_man">
         {% else %}
             <input type = "hidden" value="訪客" name="comment_man">
         {% endif %}
-        <input class="form-control mr-sm-2 leave_message" type="search" placeholder="想說什麼..."
+        <input class="form-control mr-sm-2 leave_message" type="search" placeholder="想說什麼...歡迎留言"
              value="" name="comment_content">
         <button class="btn btn-outline-info leave_message" type="submit">留言</button>
 </form>

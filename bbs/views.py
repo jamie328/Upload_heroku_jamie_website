@@ -11,6 +11,7 @@ from django.contrib.auth.models import User  # 導入user
 from bbs.forms import bbs_form, bbs_comment_form  # 引入自己設計表單
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # 顯示頁數
 
+
 def bbs_index(request):
 	count_num = visit_num.objects.get(id=3)
 	count_num.viewed()
@@ -27,6 +28,7 @@ def bbs_index(request):
 	comment_form = bbs_comment_form()
 	return render(request, templates, locals(),)
 
+
 @login_required
 def bbs_new_articles(request):
 	count_num = visit_num.objects.get(id=3)
@@ -41,40 +43,48 @@ def bbs_new_articles(request):
 		templates = 'bbs/bbs_new_articles.html'
 		post_form = bbs_form()
 		return render(request, templates, locals())
+
+
 def bbs_likes_post(request, post_id):
 	post_art = bbs.objects.get(pk=post_id)
 	post_art.likes()
 	messages.success(request, ("讚起來!!!"))
 	return redirect('/bbs')
+
+
 def bbs_hates_post(request, post_id):
 	post_art = bbs.objects.get(pk=post_id)
 	post_art.hates()
 	messages.success(request, ("噓聲四起!!!"))
 	return redirect('/bbs')
-def bbs_new_comment(request,post_id):
+
+
+def bbs_new_comment(request, post_id):
 	count_num = visit_num.objects.get(id=3)
 	the_post = bbs.objects.get(pk=post_id)
 	if request.method == "POST":
 		comment_form = bbs_comment_form(request.POST or None)
 		if comment_form.is_valid():
-			comment_form.save(commit=False)
-			comment_form.comment_post = the_post
-			comment_form.save()
+			new_comment = comment_form.save(commit=False)
+			new_comment.comment_post = the_post
+			new_comment.save()
 			messages.success(request, "已成功新增留言囉!!!")
-			#  加入全部
-			post = bbs.objects.all()
-			art_comment = []
-			for po in post:
-				if po.bbs_comment_set.all():
-					art_comment.append(po.bbs_comment_set.all())
-				else:
-					art_comment.append([])
-			my_list = zip(post, art_comment)
-			templates = 'bbs/bbs.html'
+			#  下面可以不用加 因為 redirect 就會導到 bbs views
+			# post = bbs.objects.all()
+			# art_comment = []
+			# for po in post:
+			# 	if po.bbs_comment_set.all():
+			# 		art_comment.append(po.bbs_comment_set.all())
+			# 	else:
+			# 		art_comment.append([])
+			# my_list = zip(post, art_comment)
+			# templates = 'bbs/bbs.html'
 			# username = User.get_username(request)
 			return redirect('/bbs')
 		else:
 			return redirect('/bbs')
+
+
 @login_required
 def bbs_revise_articles(request, post_id):
 	count_num = visit_num.objects.get(id=3)
@@ -92,13 +102,48 @@ def bbs_revise_articles(request, post_id):
 	else:
 		messages.success(request, ("你不是發布文章的人，不能修改哦！"))
 		return redirect('/bbs')
+
+
 @login_required
 def bbs_delete_articles(request, post_id):
 	deleted_articles = bbs.objects.get(pk=post_id)
 	if request.user.first_name == deleted_articles.postman:
 		deleted_articles.delete()
-		messages.success(request,"剛剛你選取的文章已被刪除囉!!!")
+		messages.success(request, "剛剛你選取的文章已被刪除囉!!!")
 		return redirect('/bbs')
 	else:
-		messages.success(request, ("你不是發布文章的人，不能刪除哦！"))
+		messages.success(request, ("你不是發布文章的人，不能亂刪哦！"))
 		return redirect('/bbs')
+
+
+@login_required()
+def bbs_revise_comment(request, comment_id):
+	the_comment = bbs_comment.objects.get(pk=comment_id)
+	if request.user.first_name == the_comment.comment_man:
+		if request.method == 'POST':
+			comment_form = bbs_comment_form(request.POST or None, instance=the_comment)
+			if comment_form.is_valid():
+				comment_form.save()
+				messages.success(request, "你已成功修改你的留言哦!!!")
+				return redirect('/bbs')
+		else:
+			templates = 'bbs/bbs_revise_comment.html'
+			return render(request, templates, locals(),)
+	else:
+		messages.success(request, "你不是這個留言的擁有者，不能修改留言哦!!!")
+		return redirect('/bbs')
+
+
+@login_required()
+def bbs_delete_comment(request, comment_id):
+	count_num = visit_num.objects.get(id=3)
+	the_comment = bbs_comment.objects.get(pk=comment_id)
+	if request.user.first_name == the_comment.comment_man:
+		the_comment.delete()
+		messages.success(request, "你點選的流言已刪除囉!!!")
+		return redirect('/bbs')
+	else:
+		messages.success(request, "你不是這個留言的擁有者，不能刪除留言哦!!!")
+		return redirect('/bbs')
+
+
