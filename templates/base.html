@@ -55,11 +55,13 @@
           <a class="dropdown-item" href="#">Something else here</a>
     </div>
     </ul>
+<!--search 搜尋文章      -->
     <form class="form-inline my-2 my-sm-0" method = "GET" action="{% url 'search' %}">
       <input class="form-control mr-sm-2" type="search" placeholder="輸入搜尋關鍵字..."
              aria-label="Search" name="q" value="{{ request.GET.q }}">
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     </form>
+<!--search 搜尋文章      -->
 
 <!--    寫一個 if 判斷 login or logout   -->
      {% if request.user.is_authenticated %}

@@ -7,10 +7,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<!--    網頁描述-->
+    <meta name="description" content="Jamie Huang's Blog use django to create your own website
+     and familiarize models ,templates and views system (MVC)
+     — Blog & To-do-list & BBS social media | Heroku.">
+<!--    網頁描述-->
     <title>
         <!-- 套boostrap 但title 是自己的 -->
-    {% block title %} Jamie Huang 的自學程式小部落格 {% endblock %}
+    {% block title %} Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格 {% endblock %}
     </title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -61,36 +65,7 @@
                 <br/>
                 <hr>
         {% endfor %}
-<!--          <div class="col-sm-6">-->
-<!--    <h3>-->
-<!--        2019熱門電影關鍵字爬蟲-->
-<!--    </h3>-->
-<!--    <div class="card" style="width: 24rem;">-->
-<!--      <img src="{% static 'images/keyword.png' %}" class="card-img-top" alt="2019熱門電影關鍵字">-->
-<!--      <div class="card-body">-->
-<!--    <h5 class="card-title"> 2019熱門電影關鍵字 </h5>-->
-<!--    <p class="card-text">-->
-<!--        這次寫的這隻爬蟲程式主要是想去驗收自己是不是真的能應用自己所學的爬蟲技巧去整理自己所要蒐集的資訊，因此出給自己一份小作業，把PTT電影版好雷的電影整理成 Dict，再利用 Jieba 生成文字雲...-->
-<!--    </p>-->
-<!--    <a href="https://reurl.cc/Rd1GzD" class="btn btn-primary">瞭解更多</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--          </div>-->
 
-<!--                  <div class="col-sm-6">-->
-<!--    <h3>-->
-<!--        利用爬蟲篩選適合的投資標的物-->
-<!--    </h3>-->
-<!--    <div class="card" style="width: 24rem;">-->
-<!--      <img src="{% static 'images/stock_filter.png' %}" class="card-img-top" alt="用 Python Selenium & pandas & dict">-->
-<!--      <div class="card-body">-->
-<!--    <h5 class="card-title"> 用爬蟲篩選指定指標找到適合投資標的物 </h5>-->
-<!--    <p class="card-text">-->
-<!--這支爬蟲是我出給自己 project，看自己能不能把自己的想法用程式的方法實現，以下是這支程式的概念，想利用爬蟲 Selenium 幫我們爬取資料並篩選出關鍵資訊...    </p>-->
-<!--    <a href="https://reurl.cc/9zXNRj" class="btn btn-primary">瞭解更多</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--                  </div>-->
     <footer>
         <center>
             {% for page_number in posts.paginator.page_range %}

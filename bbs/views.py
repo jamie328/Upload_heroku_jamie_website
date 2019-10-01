@@ -65,9 +65,9 @@ def bbs_new_comment(request, post_id):
 	if request.method == "POST":
 		comment_form = bbs_comment_form(request.POST or None)
 		if comment_form.is_valid():
-			new_comment = comment_form.save(commit=False)
-			new_comment.comment_post = the_post
-			new_comment.save()
+			new_comment = comment_form.save(commit=False)  # 不要在 templates 做 ForeignKey
+			new_comment.comment_post = the_post  # 用實例做 ForeignKey 的指定
+			new_comment.save()  # 存檔
 			messages.success(request, "已成功新增留言囉!!!")
 			#  下面可以不用加 因為 redirect 就會導到 bbs views
 			# post = bbs.objects.all()
