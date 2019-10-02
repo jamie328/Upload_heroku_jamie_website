@@ -19,7 +19,7 @@ def index(request):
     count_num.viewed()  # 直接呼叫函式更新
     # 9/24 新增分頁系統
     paginator = Paginator(articles_all, 3)  # 每一頁只顯示 3個 把文章切割
-    page = request.GET.get('page') # 獲得當前頁碼
+    page = request.GET.get('page')  # 獲得當前頁碼
     try:
         posts = paginator.page(page)  # ()內的為某頁的紀錄 當前頁數
     except PageNotAnInteger:  # 不是整數

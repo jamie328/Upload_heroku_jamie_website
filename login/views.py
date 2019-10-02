@@ -19,6 +19,8 @@ def dashboard(request):  # 登入成功頁面 訪問網址  /login/successful/
 	username = request.user.first_name
 	templates = 'login/dashboard.html'
 	return render(request, templates, locals())
+
+
 def registration(request):
 	count_num = visit_num.objects.get(id=3)
 	if request.method == 'POST':  # 如果是要傳回值

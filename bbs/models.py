@@ -24,7 +24,7 @@ class bbs(models.Model):  # 為單一類
 		self.post_likes += 1
 		self.save(update_fields=['post_likes'])
 	def hates(self):
-		self.post_hates +=1
+		self.post_hates += 1
 		self.save(update_fields=['post_hates'])
 # 留言為多類
 class bbs_comment(models.Model):
