@@ -14,12 +14,14 @@
 <body>
     {% block content %}
     <br/>
-    <h5>  修改你的「留言」的內容 {{ the_comment.comment_post }} {{ request.user.first_name }}</h5>
+    <h5>  修改你的「留言」的內容 <br/><br/>
+          此留言對應的文章： {{ the_comment.comment_post }} </h5>
     <br/>
 
 <form method="POST">
         {% csrf_token %}
         <input type = "hidden" value="{{ request.user.first_name }}" name="comment_man">
+        <h5>原來的留言：</h5>
         <input class="form-control mr-sm-2 leave_message" type="search"
             placeholder="{{ the_comment.comment_content }}"
             value="{{ the_comment.comment_content }}" name="comment_content">
