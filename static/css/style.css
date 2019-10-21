@@ -8,6 +8,7 @@
 }
 .search {
         font-style: italic; margin-top:30px;letter-spacing:1.5px;margin-bottom:20px;
+        text-align:center;
 }
 .text_style {
     line-height:40px;font-size: 16px;letter-spacing:1.5px;
@@ -32,31 +33,32 @@
 }
 body{
     width:100%;
-    padding:0px; margin:0px;
+    padding:0px;
     font-family: 微軟正黑體;
+    box-sizing: border-box;
 }
 .nav-hover:hover{
     border-bottom: solid 1.5px #f54291;
-
 }
 .footer{
-    text-align:center; height:100%; width:100%;
+    text-align:center; width:100%;
     background-color:#c2e8ce;
     border-top: solid 1px black;
     font-size: 12px; line-height:20px; letter-spacing:3px;
     padding: 10px;margin-top: 20px;
 }
 .index_text{
-    margin-left: 50px; margin-top:30px;
-    font-size:16px; letter-spacing:5px; color: rgba(0,0,0,0.8);
-    padding-left:120px;
+    width:500px; margin:0 auto; text-align:left; margin-top:30px;
+    font-size:18px; letter-spacing:5px; color: rgba(0,0,0,0.8);
+    text_style:bold;
 }
 .index_li {
-    font-size:14px; margin-top:20px; line-height:20px;
-    list-style:None;
+     width:500px; margin:0 auto; text-align:left;
+     font-size:16px; margin-top:10px;
+     letter-spacing:3 px; line-height:40px; font-weight:300;
 }
 .blog-art{
-    margin-top:10px; margin-left:170px;
+    margin-top:10px; margin-left: auto; margin-right:auto;
 }
 .blog-art-title{
     font-size:18px; letter-spacing:2px;
@@ -91,7 +93,7 @@ body{
 
 /*名片CSS*/
 .namecard{
-  width:35%; height:50%;
+  width:80%; height:50%;
   padding:20px;
   margin-left:auto;
   margin-right:auto;
@@ -162,27 +164,27 @@ body{
 }
 /*名片CSS*/
 .web-log {
-    font-size:14px; letter-spacing:2px; font-family: 微軟正黑體;line-height:12px;
-    font-weight:500; margin-bottom:20px; margin-top:30px;margin-left:80px;
+    font-size:14px; letter-spacing:2px; font-family: 微軟正黑體;line-height:30px;
+    font-weight:500; margin-bottom:20px; margin-top:30px;
 }
 /* to-do */
 .to-do-add {
     padding-top:20px;padding-bottom:30px;
 }
 .to-do-intro{
-    margin-left:20px; font-size:16px; letter-spacing:3px;font-family: 微軟正黑體;
-    line-height:28px; font-weight:500; margin-right:15px; margin-top:25px;
+    font-size:16px; letter-spacing:3px;font-family: 微軟正黑體;
+    line-height:28px; font-weight:500; margin-top:25px;
 }
 .to-do-table{
     text-align:center;
 }
 .edit {
-    margin-left:20px; font-size:16px; margin-bottom:30px;
+    font-size:16px; margin-bottom:30px;
 }
 /* to-do */
 /* login */
 .login-text {
-    margin-left:80px; font-size:16px; margin-bottom:30px; font-family:微軟正黑體;
+    font-size:16px; margin-bottom:30px; font-family:微軟正黑體;
     letter-spacing:2px;
 }
 /* login */
@@ -196,7 +198,8 @@ body{
      font-size:30px;
 }
 .bbs-intro {
-    margin-left:260px; margin-top:10px;font-size:16px;
+    width:500px; margin:0 auto; text-align:left;
+    margin-top:10px;font-size:16px;
     margin-bottom:30px; font-family:微軟正黑體;
     letter-spacing:2.5px; line-height:35px; font-weight:300;
 }
@@ -220,7 +223,7 @@ body{
 }
 .bbs-comment{
     font-size:11px; letter-spacing:2px; text-align:left;
-    line-height:25px; font-weight:500; margin-left:15px; margin-right:10px;
+    line-height:25px; font-weight:500; padding-left:15px;
 }
 .bbs-comment-click:hover{
     border-bottom: solid 1px #3e64ff;
@@ -230,11 +233,11 @@ body{
     font-size:26px;
 }
 .bbs-edit-text {
-    margin-left:20px; font-size:22px; margin-bottom:30px;
+    font-size:22px; margin-bottom:30px;
     font-weight: 300; line-height:45px;
 }
 .bbs-edit-input {
-    margin-left:20px;font-weight: 500;font-size:22px;
+    font-weight: 500;font-size:22px;
     font-weight: 200;
 }
 /* bbs */
