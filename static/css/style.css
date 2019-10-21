@@ -50,10 +50,10 @@ body{
 .index_text{
      text-align:center;letter-spacing:5px;
      font-weight:700; padding-top:30px;
-     font-size:24px;
+     font-size:20px;
 }
 .index_li {
-    font-size:18px; letter-spacing:3px;font-family: 微軟正黑體;
+    font-size:14px; letter-spacing:3px;font-family: 微軟正黑體;
     line-height:40px; font-weight:400; margin-top:25px;
     text-align:left;
 }
@@ -195,7 +195,7 @@ body{
 .bbs-head {
      text-align:center;letter-spacing:5px;
      font-weight:500; padding-top:30px;
-     font-size:24px;font-family: 微軟正黑體;
+     font-size:20px;font-family: 微軟正黑體;
 }
 .bbs-intro {
     font-size:14px; letter-spacing:3px;font-family: 微軟正黑體;
