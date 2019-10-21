@@ -1,100 +1,92 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
+<!--head含meta & link css-->
+  <head>
+    <!--meta  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!--    網頁描述-->
     <meta name="description" content="Jamie Huang's Blog use django to create your own website
      and familiarize models ,templates and views system (MVC)
      — Blog & To-do-list & BBS social media | Heroku.">
-<!--    網頁描述-->
+    <!--title  -->
     <title>
-        <!-- 套boostrap 但title 是自己的 -->
-    {% block title %} Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格 {% endblock %}
+        {% block title %}
+            Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
+        {% endblock %}
     </title>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS & 自己 CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href= "{% static "css/style.css" %}" >
-</head>
+  </head>
+<!--body-->
+{% block content %}
 <body>
-        <br/>
-        <div class="container-fluid">
-          <div class="media-body">
-              <h5 class="mt-2 text_style"> 用 Django 與 Bootstrap 試著寫寫程式 </h5>
-              <li class = "media text_style">
-                  前端技能比較缺少，後續會持續學習，所以網頁美觀，希望先不要太計較 XD！
-              </li>
-              <li class = "media text_style">
-                  如有功能問題或是意見交流歡迎寫信聯絡我 Email: b10130402@gmail.com
-              </li>
-              <li class = "media text_style">
-                  點進網頁的你，不妨按按上面的 To-do-app & BBS(電子佈告欄) 兩個功能試試看玩玩看哦！
-              </li>
-              <li class = "media text_style">
-                  如果想操作 BBS 與 To-do-app 可以註冊帳號或是使用第三方 Social-media 註冊！
-              </li>
-              <li class = "media text_style">
-                  下面是我自己試著做的 Side Project 心得歡迎點閱分享。
-              </li>
-          </div>
-        </div>
+    <div class="index_text">
+        用 Django 與 Bootstrap 試著寫寫程式 <br>
+        <li class="index_li">
+            前端技能比較缺少，後續會持續學習，所以網頁美觀，希望先不要太計較 XD！
+        </li>
+        <li class="index_li">
+            如有功能問題或是意見交流歡迎寫信聯絡我 Email: b10130402@gmail.com
+        </li>
+        <li class="index_li">
+            點進網頁的你，不妨按按上面的 To-do-app & BBS(電子佈告欄) 兩個功能試試看玩玩看哦！
+        </li>
+        <li class="index_li">
+            如果想操作 BBS 與 To-do-app 可以註冊帳號或是使用第三方 Social-media 註冊！
+        </li>
+        <li class="index_li">
+            下面是我自己試著做的 Side Project 心得歡迎點閱分享。
+        </li>
+    </div>
     <br/>
-        {% for post in posts %}
-            <div class="col-sm-9">
-                <h3 class="text_style">
-                    {{ post.Title }}
-                </h3>
-                <h6 class="date_style">
-                    {{ post.Create_date }}
-                </h6>
-
-                <div class="card" style="width: 35 rem;">
-                    <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ post.Intro }}
-                        </p>
-                        <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
-                    </div>
+    <!--Blog 文章-->
+    {% for post in posts %}
+        <div class="col-sm-9 blog-art">
+            <h3 class="text_style blog-art-title">
+                {{ post.Title }}
+            </h3>
+            <h6 class="date_style">
+                {{ post.Create_date }}
+            </h6>
+            <div class="card" style="width: 35 rem;">
+                <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
+                <div class="card-body">
+                    <p class="card-text blog-art-text">
+                        {{ post.Intro }}
+                    </p>
+                    <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
                 </div>
-                </div>
-                <br/>
-                <hr>
-        {% endfor %}
-
-    <footer>
-        <center>
-            {% for page_number in posts.paginator.page_range %}
-              {% ifequal page_number posts.number %}
+            </div>
+        </div>
+        <br>
+        <hr class="hr-blog">
+    {% endfor %}
+    <!--page footer-->
+    <footer class="page">
+        {% for page_number in posts.paginator.page_range %}
+            {% ifequal page_number posts.number %}
                 {{ page_number }}
-              {% else %}
+            {% else %}
                 <a href =  "?page={{ page_number }}"> {{ page_number }}</a>
-              {% endifequal %}
-            {% endfor %}
-        </center>
-        <center>
+            {% endifequal %}
+        {% endfor %}
         <div>
             <span>
                 {% if posts.has_previous %}
                     <a href = "?page={{ posts.previous_page_number }}"> Newer </a>
                 {% endif %}
             </span>
-<!--            <span>-->
-<!--                Page  {{ posts.number }}  of  {{ posts.paginator.num_pages }}-->
-<!--            </span>-->
             <span>
                 {% if posts.has_next %}
                     <a href= "?page={{ posts.next_page_number }}"> Older </a>
                 {% endif %}
             </span>
         </div>
-        </center>
     </footer>
 </body>
-</html>
-
 {% endblock %}
+</html>

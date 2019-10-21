@@ -2,93 +2,76 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <!--    網頁描述-->
-    <meta name="description" content="Jamie Huang's Blog use django to create your own website
-     and familiarize models ,templates and views system (MVC)
-     — Blog & To-do-list & BBS social media | Heroku.">
-<!--    網頁描述-->
-    <!-- 套boostrap 但title 是自己的 -->
-    <title>
-    {% block title %}
-    Login 會員登入頁面 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
-    {% endblock %}
-    </title>
-</head>
-<body>
-    {% block content %}
-    <br/>
-    <div class="align-center">
-    <h5>  Login 後才能使用 BBS 與 To-do-app 哦！ </h5><br/>
-    <h5>  Login 會員登入或是選擇 <a href="{% url 'registration' %}"> 加入會員 </a>  </h5>
-    <hr>
-    <p>  請輸入以下帳號及密碼  </p>
-    <form class="post-form" method = "POST" action='.'>
-      {{ form.as_p }}
-      {% csrf_token %}
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> 登入 </button>
-    </form><br/>
-<!--    google API登入    -->
-    <button type="button" class="btn btn-outline-success google">
-        <a href="{% url 'social:begin' 'google-oauth2' %}">使用第三方 Google 登入</a></button>
-        &emsp; / &emsp;
-<!--    google API登入    -->
-<!--    instagram API登入        -->
-    <button type="button" class="btn btn-outline-success instagram">
-        <a href="{% url 'social:begin' 'instagram' %}">使用第三方 Instagram 登入</a></button>
-<!--    instagram API登入        -->
-        &emsp; / &emsp;
-<!--    github API登入-->
-    <button type="button" class="btn btn-outline-success github">
-        <a href="{% url 'social:begin' 'github' %}">使用第三方 Github 登入</a></button> &emsp;
-<!--    github API登入-->
-<!--    facebook API登入        -->
-<!--            <button type="button" class="btn btn-outline-success facebook">-->
-<!--        <a href="{% url 'social:begin' 'facebook' %}">使用第三方 Facebook 登入</a></button>-->
-<!--    facebook API登入        -->
-
-    <p class="text_style">
-        或是選擇使用「測試帳號與密碼」供測試用 <br/>
-        帳號： robertisme <br/>
-        密碼： pythondjango <br/>
-    </p>
-    </div>
-    {% endblock %}
-</body>
+    <head>
+        <meta charset="utf-8">
+        <!--    網頁描述-->
+        <meta name="description" content="Jamie Huang's Blog use django to create your own website
+         and familiarize models ,templates and views system (MVC)
+         — Blog & To-do-list & BBS social media | Heroku.">
+        <!--    網頁描述-->
+        <!-- 套boostrap 但title 是自己的 -->
+        <title>
+            {% block title %}
+                Login 會員登入頁面 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        {% block content %}
+        <br>
+        <!--輸入帳號密碼資訊-->
+        <div class="login-text">
+            <div class="basic-account">
+                <h5>
+                    Login 後才能使用 BBS 與 To-do-app 哦！
+                </h5><br>
+                <h5>
+                    Login 會員登入或是選擇
+                    <a href="{% url 'registration' %}">
+                        加入會員
+                    </a>
+                </h5>
+                <hr>
+                <p>
+                    請輸入以下帳號及密碼
+                </p>
+            </div>
+            <!--輸入帳號密碼核對form-->
+            <form class="post-form" method = "POST" action='.'>
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">
+                    登入
+                </button>
+            </form>
+            <br>
+            <!--google API登入    -->
+            <button type="button" class="btn btn-outline-success google">
+                <a href="{% url 'social:begin' 'google-oauth2' %}">
+                    使用第三方 Google 登入
+                </a>
+            </button>
+            &emsp; / &emsp;
+            <!--instagram API登入        -->
+            <button type="button" class="btn btn-outline-success instagram">
+                <a href="{% url 'social:begin' 'instagram' %}">
+                    使用第三方 Instagram 登入
+                </a>
+            </button>
+            &emsp; / &emsp;
+            <!--    github API登入-->
+            <button type="button" class="btn btn-outline-success github">
+                <a href="{% url 'social:begin' 'github' %}">
+                    使用第三方 Github 登入
+                </a>
+            </button> &emsp;
+            <!--facebook API登入沒做-->
+            <p class="text_style">
+                或是選擇使用「測試帳號與密碼」供測試用 <br>
+                帳號： robertisme <br>
+                密碼： pythondjango <br>
+            </p>
+        </div>
+        {% endblock %}
+    </body>
 </html>
-
-<!--官方模板-->
-
-<!--{% if form.errors %}-->
-<!--<p>Your username and password didn't match. Please try again.</p>-->
-<!--{% endif %}-->
-
-<!--{% if next %}-->
-<!--    {% if user.is_authenticated %}-->
-<!--    <p>Your account doesn't have access to this page. To proceed,-->
-<!--    please login with an account that has access.</p>-->
-<!--    {% else %}-->
-<!--    <p>Please login to see this page.</p>-->
-<!--    {% endif %}-->
-<!--{% endif %}-->
-
-<!--<form method="post" action="{% url 'login' %}">-->
-<!--{% csrf_token %}-->
-<!--<table>-->
-<!--<tr>-->
-<!--    <td>{{ form.username.label_tag }}</td>-->
-<!--    <td>{{ form.username }}</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>{{ form.password.label_tag }}</td>-->
-<!--    <td>{{ form.password }}</td>-->
-<!--</tr>-->
-<!--</table>-->
-
-<!--<input type="submit" value="login">-->
-<!--<input type="hidden" name="next" value="{{ next }}">-->
-<!--</form>-->
-
-<!--{# Assumes you setup the password_reset view in your URLconf #}-->
-<!--<p><a href="{% url 'password_reset' %}">Lost password?</a></p>-->

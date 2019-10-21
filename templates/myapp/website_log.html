@@ -2,40 +2,58 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <!-- 套boostrap 但title 是自己的 -->
-    <!--    網頁描述-->
-    <meta name="description" content="Jamie Huang's Blog use django to create your own website
-     and familiarize models ,templates and views system (MVC)
-     — Blog & To-do-list & BBS social media | Heroku.">
-<!--    網頁描述-->
-    <title>
-    {% block title %}
-    網站開發重大紀錄 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
-    {% endblock %}
-    </title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href= "{% static "css/style.css" %}" >
-</head>
-<body>
-    {% block content %}
-    <br/>
-    <h3>  紀錄網站開發的歷史  </h3>
-    <hr>
-    <ul>
-        <li class="text_style"> 9/03 ： 開始學習 Django </li>
-        <li class="text_style"> 9/14 ： Localhost 本地端建置完成，未完成 Heroku 部署 </li>
-        <li class="text_style"> 9/18 ： 完成 Heroku 部署，可使用網路瀏覽 Blog </li>
-        <li class="text_style"> 9/20 ： 完成文章發布與完善網站美觀 </li>
-        <li class="text_style"> 9/24 ： 完成文章分頁瀏覽與文章搜尋功能  </li>
-        <li class="text_style"> 9/26 ： 新增會員系統，且只有註冊會員才能使用 To-do-app  </li>
-        <li class="text_style">
-            9/28 ： 新增串接 API 登入可使用 Social-Auth
-            (Google 、 Instagram 、 Github等接口服務) 登入系統 </li>
-        <li class="text_style"> 10/1 ： 成功開發出 BBS 留言板社群功能，可發布文章、留言、讚、噓等互動</li>
-    </ul>
-    {% endblock %}
-</body>
+    <!--head 包含meta link css-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Jamie Huang's Blog use django to create your own website
+         and familiarize models ,templates and views system (MVC)
+         — Blog & To-do-list & BBS social media | Heroku.">
+        <title>
+        {% block title %}
+            網站開發重大紀錄 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
+        {% endblock %}
+        </title>
+        <!-- Bootstrap CSS & 自己CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href= "{% static "css/style.css" %}" >
+    </head>
+    <body>
+        {% block content %}
+        <h3 class="about-text">
+            紀錄網站開發的歷史
+        </h3>
+        <hr>
+        <!--網頁log資訊-->
+        <ul>
+            <li class="web-log">
+                9/03 ： 開始學習 Django
+            </li>
+            <li class="web-log">
+                9/14 ： Localhost 本地端建置完成，未完成 Heroku 部署
+            </li>
+            <li class="web-log">
+                9/18 ： 完成 Heroku 部署，可使用網路瀏覽 Blog
+            </li>
+            <li class="web-log">
+                9/20 ： 完成文章發布與完善網站美觀
+            </li>
+            <li class="web-log">
+                9/24 ： 完成文章分頁瀏覽與文章搜尋功能
+            </li>
+            <li class="web-log">
+                9/26 ： 新增會員系統，且只有註冊會員才能使用 To-do-app
+            </li>
+            <li class="web-log">
+                9/28 ： 新增串接 API 登入可使用 Social-Auth
+                (Google 、 Instagram 、 Github等接口服務) 登入系統
+            </li>
+            <li class="web-log">
+                10/1 ： 成功開發出 BBS 留言板社群功能，可發布文章、留言、讚、噓等互動
+            </li>
+            <li class="web-log">
+                10/20 ： 重構 網頁 HTML & CSS 並加上 CSS名片於 About-me
+            </li>
+        </ul>
+        {% endblock %}
+    </body>
 </html>

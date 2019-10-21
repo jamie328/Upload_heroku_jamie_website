@@ -140,7 +140,7 @@ def bbs_delete_comment(request, comment_id):
 	the_comment = bbs_comment.objects.get(pk=comment_id)
 	if request.user.first_name == the_comment.comment_man:
 		the_comment.delete()
-		messages.success(request, "你點選的流言已刪除囉!!!")
+		messages.success(request, "你點選的留言已刪除囉!!!")
 		return redirect('/bbs')
 	else:
 		messages.success(request, "你不是這個留言的擁有者，不能刪除留言哦!!!")

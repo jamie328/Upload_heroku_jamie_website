@@ -3,68 +3,93 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <!--    網頁描述-->
-    <meta name="description" content="Jamie Huang's Blog use django to create your own website
-     and familiarize models ,templates and views system (MVC)
-     — Blog & To-do-list & BBS social media | Heroku.">
-<!--    網頁描述-->
-    <title>
-        <!-- 套boostrap 但title 是自己的 -->
-    {% block title %} 文章搜尋結果 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格 {% endblock %}
-    </title>
-        <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href= "{% static "css/style.css" %}" >
-</head>
+    <!--head含meta,title,link-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Jamie Huang's Blog use django to create your own website
+         and familiarize models ,templates and views system (MVC)
+         — Blog & To-do-list & BBS social media | Heroku.">
+        <title>
+            {% block title %}
+                文章搜尋結果 | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
+            {% endblock %}
+        </title>
+        <!-- Bootstrap CSS & 自己CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href= "{% static "css/style.css" %}" >
+    </head>
 <body>
+    <!--搜尋結果-->
     {% block content %}
-    <br/>
-    {% if query %}
-        {% if results %}
-            <h4 class="search"> 搜尋邏輯為文章標題與文章介紹有無包含關鍵字，以下為符合結果... </h4>
-            <br/>
-            {% for post in posts %}
-            <div class="col-sm-9">
-            {% if post.Title %}
-                <h3>
-                {{ post.Title }}
-                </h3>
-                <h6 class="date_style">
-                    {{ post.Create_date }}
-                </h6>
-                <div class="card" style="width: 35 rem;">
-                    <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ post.Intro }}
-                        </p>
-                        <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
+        {% if query %}
+            {% if results %}
+                <h4 class="search">
+                    搜尋邏輯為文章標題與文章介紹有無包含關鍵字，以下為符合結果...<br>
+                </h4>
+                <!--將搜尋到的文章用For 表示-->
+                {% for post in posts %}
+                    <div class="col-sm-9 blog-art">
+                        {% if post.Title %}
+                        <h3 class="text_style blog-art-title">
+                            {{ post.Title }}
+                        </h3>
+                        <h6 class="date_style">
+                            {{ post.Create_date }}
+                        </h6>
+                        <div class="card" style="width: 35 rem;">
+                            <img src="{% static post.Image %}" class="card-img-top" alt="{{ post.Title }}">
+                            <div class="card-body">
+                                <p class="card-text blog-art-text">
+                                    {{ post.Intro }}
+                                </p>
+                                    <a href="{{ post.Href }}" class="btn btn-primary">瞭解更多</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div><br/><hr>
+                        <hr>
+                        {% endif %}
+                {% endfor %}
+            {% else %}
+                    <h4 class="search">
+                        你搜尋的關鍵字:「 {{ query }} 」，在部落格找不到相關結果！！
+                    </h4>
             {% endif %}
-            {% endfor %}
-        {% else %}
-            <h4 class="search"> 你搜尋的關鍵字:「 {{ query }} 」，在部落格找不到相關結果！！ <h4/>
-        {% endif %}
-        <footer>
-        <center>
+            <footer class="page">
             {% for page_number in posts.paginator.page_range %}
-              {% ifequal page_number posts.number %}
+                {% ifequal page_number posts.number %}
                 {{ page_number }}
-              {% else %}
-                <a href =  "?page={{ page_number }}"> {{ page_number }}</a>
-              {% endifequal %}
-            {% endfor %}
-        </center>
-        </footer>
-    {% else %}
-            <h4 class="search"> 搜尋邏輯為文章標題與文章介紹有無包含關鍵字。 </h4>
-            <br/>
-            <h4> 你輸入為空白，請重新輸入！！ <h4/>
-    {% endif %}
+            {% else %}
+                <a href ="?q={{ query }}&page={{ page_number }}">
+                    {{ page_number }}
+                </a>
+            {% endifequal %}
+        {% endfor %}
+    <footer class="page">
+        <div>
+            <span>
+                {% if posts.has_previous %}
+                    <a href = "?q={{ query }}&page={{ posts.previous_page_number }}"> Newer </a>
+                {% endif %}
+            </span>
+            <span>
+                {% if posts.has_next %}
+                    <a href= "?q={{ query }}&page={{ posts.next_page_number }}">
+                        Older
+                    </a>
+                {% endif %}
+            </span>
+        </div>
+    </footer>
+
+        {% else %}
+            <!--輸入為空白-->
+            <h4 class="search">
+                搜尋邏輯為文章標題與文章介紹有無包含關鍵字。 <br>
+                你輸入為空白，請重新輸入！！
+            </h4>
+        {% endif %}
+    <!--搜尋結果以分頁呈現-->
+
     {% endblock %}
 </body>
 </html>

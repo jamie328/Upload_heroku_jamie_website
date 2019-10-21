@@ -36,7 +36,7 @@ def about(request):
 
 def search(request):
     count_num = visit_num.objects.get(id = 3)  # 創建跑去id=3 第一次取確認有無取到
-    query = request.GET.get('q')
+    query = request.GET.get('q', '')
     results = articles.objects.all().filter(Q(Title__contains=str(query))
                                             | (Q(Intro__contains=str(query))))
     # if results is None:
@@ -50,7 +50,7 @@ def search(request):
         posts = paginator.page(1)  # 剛開始進去為第1頁
     except EmptyPage:  # 頁數超過最後一頁顯示最後一頁
         posts = paginator.page(paginator.num_pages)  # 總共頁數的最後一頁
-    return render(request, 'myapp/search.html', locals()) # 呼叫search模板
+    return render(request, 'myapp/search.html', locals())  # 呼叫search模板
 
 
 def website_log(request):

@@ -1,129 +1,147 @@
 {% extends 'base.html' %}
-
-<!--    網頁描述-->
-    <meta name="description" content="Jamie Huang's Blog use django to create your own website
-     and familiarize models ,templates and views system (MVC)
-     — Blog & To-do-list & BBS social media | Heroku.">
-<!--    網頁描述-->
-<title>
-    {% block title %}
-    To-do-app | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
-    {% endblock %}
-</title>
-<body>
-    {% block navbar %}
-  <!--  navbar開始-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'to_do_app' %}"> To-do-app </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About-me</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'bbs_index' %}">BBS留言板</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://huangjamison.github.io/Portfolio_Code/">Jamie 作品集</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'website_log' %}">網站開發史</a>
-      </li>
-<!--        <li class="nav-item">-->
-<!--        <a class="nav-link" href="{% url 'member_index' %}">Member Index</a>-->
-<!--      </li>-->
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-    </ul>
-    <form class="form-inline my-2 my-sm-0" method="POST">
-        {% csrf_token %}
-        <input class="form-control mr-sm-2" type="search" placeholder="To-do-item"
-             value="填to-do-item..." aria-label="Search" name = "item">
-        <select class="form-control mr-sm-2" name = "priority">
-            <option value = "*" selected> minor </option>
-            <option value = "**"> major </option>
-            <option value= "***"> very important </option>
-        </select>
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="*"-->
-<!--             value ="*" aria-label="Search" name = "priority">-->
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Add-Item</button>
-    </form>
-    <!--    寫一個 if 判斷 login or logout   -->
-     {% if request.user.is_authenticated %}
-     <a href="{% url 'logout' %}" class="btn btn-link btn-sm active mr-sm-0" role="button" aria-pressed="true">
-         {{ request.user.first_name }}，Logout</a>/
-      <a href="{% url 'password_change' %}" class="btn btn-link btn-sm active" role="button" aria-pressed="true">
-          更改密碼 </a>
-     {% else %}
-     <a href="{% url 'login' %}" class="btn btn-link btn-sm active mr-sm-0" role="button" aria-pressed="true"> Login 會員登入 </a>
-     {% endif %}
-    <!--    寫一個 if 判斷 login or logout   -->
-  </div>
-</nav>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Jamie Huang's Blog use django to create your own website
+         and familiarize models ,templates and views system (MVC)
+         — Blog & To-do-list & BBS social media | Heroku.">
+        <title>
+        {% block title %}
+            To-do-app | Jamie Huang's Blog 用 Django 打造專屬自己的程式小部落格
         {% endblock %}
-<!--  navbar結束-->
-    {% block content %}
-    <br/>
-    <h5 class="text_style" align="left"> To-do-app 是提醒大家在日常生活中待辦事項的一個小的應用 ，
-        "*" 數越多，代表這件事情的優先順序越高，
-        請在輸入待辦事項時，以"*"表示此事情處理順位，預設為一個"*"，由右上角輸入代辦事項。 </h5><br/>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success alert-dismissable" role="alert">
-                <button class="close" data-dismiss="alert">
-                    <small><sup>X</sup></small>
-                </button>
-                {{message}} </div>
-        {% endfor %}
-    {% endif%}
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col"><center>Date</center></th>
-                <th scope="col"><center>Item</center></th>
-                <th scope="col"><center>Priority</center></th>
-                <th scope="col"><center>Completed</center></th>
-                <th scope="col"><center>Deleted</center></th>
-            </tr>
-            <tbody>
-        {% if all_items %}
-            {% for item in all_items %}
-            {% if item.completed %}
-            <tr class = "table-secondary">
-                <td><center> {{item.event_date}} </center></td>
-                <td class = "striker"><a href = "/to_do_app/edit/{{item.id}}"></a><center>
-                    {{item.item}} </a></center></td>
-                <td><center>
-                    <a href = "/to_do_app/edit_pri/{{item.id}}"> {{item.priority}}</a>
-                </center> </td>
-                <td><center> <a href = "/to_do_app/uncompleted/{{item.id}}">O</a></center> </td>
-                <td><center> <a href = "/to_do_app/delete/{{item.id}}"> 刪除 </a></center></td>
-            </tr>
-            {% else %}
-            <tr>
-                <td><center> {{item.event_date}} </center></td>
-                <td><center> <a href = "/to_do_app/edit/{{item.id}}">{{item.item}}</a> </center></td>
-                <td><center>
-                    <a href = "/to_do_app/edit_pri/{{item.id}}"> {{item.priority}}</a>
-                </center></td>
-                <td><center> <a href = "/to_do_app/completed/{{item.id}}">X</a> </center></td>
-                <td><center> <a href = "/to_do_app/delete/{{item.id}}"> 刪除 </a></center></td>
-            </tr>
-            {% endif %}
+        </title>
+        <!-- Bootstrap CSS & 自己CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href= "{% static "css/style.css" %}" >
+    </head>
+    <body>
+        {% block content %}
+
+        <h5 class="to-do-intro">
+            To-do-app 是提醒大家在日常生活中待辦事項的一個小的應用 ，
+            "*" 數越多，代表這件事情的優先順序越高，
+            請在輸入待辦事項時，以"*"表示此事情處理順位，預設為一個"*"，由下方輸入代辦事項。
+        </h5>
+        <!--to-do-add-item-->
+        <form class="to-do-add form-inline my-2 my-sm-0" method="POST">
+            <span class="to-do-intro">
+                <b>
+                    請輸入要加入的 To-do-item:
+                </b>
+            </span>
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="To-do-item"
+             value="Fill in To-do-item..." aria-label="Search" name = "item">
+            <select class="form-control mr-sm-2" name = "priority">
+                <option value = "*" selected> minor </option>
+                <option value = "**"> major </option>
+                <option value= "***"> very important </option>
+            </select>
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                Add-Item
+            </button>
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <!--message_box-->
+                <div class="alert alert-success alert-dismissable" role="alert">
+                    <button class="close" data-dismiss="alert">
+                        <small>
+                            <sup>
+                                X
+                            </sup>
+                        </small>
+                    </button>
+                    {{message}}
+                </div>
             {% endfor %}
-        </ul>
         {% endif %}
+        <!--To-do-item-list-->
+        <table class="table">
+            <!--表格標頭-->
+            <thead class="to-do-table thead-dark">
+                <tr>
+                    <th scope="col">
+                        Date
+                    </th>
+                    <th scope="col">
+                        Item
+                    </th>
+                    <th scope="col">
+                        Priority
+                    </th>
+                    <th scope="col">
+                        Completed
+                    </th>
+                    <th scope="col">
+                        Deleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="to-do-table">
+            {% if all_items %}
+                {% for item in all_items %}
+                    {% if item.completed %}
+                        <!--如果item完成表格內容-->
+                        <tr class = "table-secondary">
+                            <td>
+                                {{item.event_date}}
+                            </td>
+                            <td class = "striker">
+                                <a href = "/to_do_app/edit/{{item.id}}">
+                                    {{item.item}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/edit_pri/{{item.id}}">
+                                    {{item.priority}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/uncompleted/{{item.id}}">
+                                    O
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/delete/{{item.id}}">
+                                    刪除
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <!--如果item未完成表格內容-->
+                        <tr>
+                            <td>
+                                {{item.event_date}}
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/edit/{{item.id}}">
+                                    {{item.item}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/edit_pri/{{item.id}}">
+                                    {{item.priority}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/completed/{{item.id}}">
+                                    X
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "/to_do_app/delete/{{item.id}}">
+                                    刪除
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </table>
     {% endblock %}
-</body>
+    </body>
+</html>
