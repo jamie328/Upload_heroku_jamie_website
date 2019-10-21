@@ -49,13 +49,13 @@ body{
 }
 .index_text{
      text-align:center;letter-spacing:5px;
-     font-weight:500; padding-top:30px;
-     font-size:30px;
+     font-weight:700; padding-top:30px;
+     font-size:24px;
 }
 .index_li {
-    font-size:18px; letter-spacing:7px;font-family: 微軟正黑體;
-    line-height:48px; font-weight:300; margin-top:25px;
-    text_style:bold;text-align:left;
+    font-size:18px; letter-spacing:3px;font-family: 微軟正黑體;
+    line-height:40px; font-weight:400; margin-top:25px;
+    text-align:left;
 }
 .blog-art{
     margin-top:10px; margin-left: auto; margin-right:auto;
@@ -164,19 +164,19 @@ body{
 }
 /*名片CSS*/
 .web-log {
-    font-size:14px; letter-spacing:2px; font-family: 微軟正黑體;line-height:30px;
+    font-size:14px; letter-spacing:2px; font-family: 微軟正黑體;line-height:26px;
     font-weight:500; margin-bottom:20px; margin-top:30px;
 }
 /* to-do */
 .to-do-add {
-    padding-top:20px;padding-bottom:30px;
+    padding-top:20px;padding-bottom:30px; line-height:35px; font-size:16px;
 }
 .to-do-intro{
-    font-size:16px; letter-spacing:3px;font-family: 微軟正黑體;
+    font-size:14px; letter-spacing:3px;font-family: 微軟正黑體;
     line-height:28px; font-weight:500; margin-top:25px;
 }
 .to-do-table{
-    text-align:center;
+    text-align:center; font-size:14px;
 }
 .edit {
     font-size:16px; margin-bottom:30px;
@@ -185,7 +185,7 @@ body{
 /* login */
 .login-text {
     font-size:16px; margin-bottom:30px; font-family:微軟正黑體;
-    letter-spacing:2px;
+    letter-spacing:2px; line-height:35px;
 }
 /* login */
 /* bbs */
@@ -195,12 +195,12 @@ body{
 .bbs-head {
      text-align:center;letter-spacing:5px;
      font-weight:500; padding-top:30px;
-     font-size:30px;
+     font-size:24px;font-family: 微軟正黑體;
 }
 .bbs-intro {
-    font-size:18px; letter-spacing:7px;font-family: 微軟正黑體;
-    line-height:48px; font-weight:300; margin-top:25px;
-    text_style:bold; text-align:left; margin-bottom:20px;
+    font-size:14px; letter-spacing:3px;font-family: 微軟正黑體;
+    line-height:40px; font-weight:500; margin-top:25px;
+    text-align:left; margin-bottom:20px;
 }
 .bbs_href {
     display:inline; font-style: bold; color: red;
