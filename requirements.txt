@@ -27,7 +27,7 @@ numpy==1.17.1
 oauthlib==3.1.0
 pandas==0.25.1
 Pillow==6.1.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 protobuf==3.9.1
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
