@@ -32,7 +32,7 @@ protobuf==3.9.1
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 PyMySQL==0.9.3
 pyparsing==2.4.2
 python-dateutil==1.5
